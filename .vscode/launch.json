@@ -1,0 +1,48 @@
+{
+  // Press F5 in VS Code / Antigravity and pick one of these.
+  // FIJI_HOME must already be set on your computer (see docs/SETUP.md).
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Measurement app (port 8765)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/prototype_app.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "CNN inspector (port 8770)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/network_visualizer.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Train candidate model",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/train_prototype.py",
+      "args": ["--epochs", "300", "--learning-rate", "0.001", "--dice-weight", "3"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Check: Fiji integration",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tests/verify_prototype.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Check: CNN arithmetic",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tests/verify_network_visualizer.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

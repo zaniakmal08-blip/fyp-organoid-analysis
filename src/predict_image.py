@@ -1,33 +1,47 @@
-"""Run the saved three-image model. Press any key in the OpenCV window to close."""
-from pathlib import Path
+"""LEGACY baseline: preview a prediction from a ``train_three.py`` checkpoint.
+
+Kept for comparison only; the measurement app does not use this script. It needs a
+checkpoint written by ``train_three.py`` (square-resize preprocessing), not
+``models/tiny_unet.pt``. Press any key in the OpenCV window to close it.
+
+Example::
+
+    python src/predict_image.py --image IMAGE.tif --model results/local/baseline_runs/RUN/tiny_unet.pt
+"""
+
 import argparse
+from pathlib import Path
+
 import cv2
 import numpy as np
-from PIL import Image
 import torch
-from train_three import TinyUNet, prepare_image
+from PIL import Image
 
-# EDIT THIS PATH, then run this script. A04 was not used during training.
-INPUT_IMAGE = Path(r'c:\Users\User\Desktop\MachineVision\MCTA-4364-Machine-Vision\notebooks\images\syazani.jpg')
-MODEL_FILE = Path(__file__).parent / 'runs' / '20261022_172316' / 'tiny_unet.pt'
+from model import TinyUNet
+from project_paths import RESULTS
+from train_three import prepare_image
+
 THRESHOLD = 0.5
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--image', type=Path, default=INPUT_IMAGE)
-    parser.add_argument('--model', type=Path, default=MODEL_FILE)
-    parser.add_argument('--no-show', action='store_true', help='Save preview without opening a window')
+    parser.add_argument("--image", type=Path, required=True, help="Image to segment")
+    parser.add_argument("--model", type=Path, required=True, help="Checkpoint from train_three.py")
+    parser.add_argument(
+        "--no-show", action="store_true", help="Save preview without opening a window"
+    )
     args = parser.parse_args()
     if not args.image.is_file():
-        raise SystemExit(f'Image not found: {args.image}')
+        raise SystemExit(f"Image not found: {args.image}")
     if not args.model.is_file():
-        raise SystemExit(f'Model not found: {args.model}')
+        raise SystemExit(f"Model not found: {args.model}")
     torch.set_num_threads(2)
-    checkpoint = torch.load(args.model, map_location='cpu', weights_only=True)
+    checkpoint = torch.load(args.model, map_location="cpu", weights_only=True)
     model = TinyUNet()
-    model.load_state_dict(checkpoint['model_state'])
+    model.load_state_dict(checkpoint["model_state"])
     model.eval()
-    size = checkpoint['size']
+    size = checkpoint["size"]
     image = prepare_image(args.image, size)
     x = torch.tensor(image[None, None], dtype=torch.float32)
     with torch.no_grad():
@@ -40,33 +54,37 @@ def main():
     if a.ndim == 3:
         a = a[..., :3].mean(axis=-1)
     low, high = np.percentile(a, [1, 99])
-    gray = np.uint8(np.clip((a-low)/max(float(high-low), 1e-6), 0, 1)*255)
-    display_size = (480, max(1, round(480*height/width)))
+    gray = np.uint8(np.clip((a - low) / max(float(high - low), 1e-6), 0, 1) * 255)
+    display_size = (480, max(1, round(480 * height / width)))
     source = cv2.cvtColor(cv2.resize(gray, display_size), cv2.COLOR_GRAY2BGR)
     shown_mask = cv2.resize(mask, display_size, interpolation=cv2.INTER_NEAREST)
     overlay = source.copy()
     contours, _ = cv2.findContours(shown_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(overlay, contours, -1, (0, 255, 0), 2)
     panels = []
-    for content, title in [(source, 'Input image'),
-                           (cv2.cvtColor(shown_mask, cv2.COLOR_GRAY2BGR), 'AI mask'),
-                           (overlay, 'AI outline (unreviewed)')]:
-        panel = cv2.copyMakeBorder(content, 45, 0, 0, 0, cv2.BORDER_CONSTANT, value=(25,25,25))
-        cv2.putText(panel, title, (12,30), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255,255,255), 1, cv2.LINE_AA)
+    for content, title in [
+        (source, "Input image"),
+        (cv2.cvtColor(shown_mask, cv2.COLOR_GRAY2BGR), "AI mask"),
+        (overlay, "AI outline (unreviewed)"),
+    ]:
+        panel = cv2.copyMakeBorder(content, 45, 0, 0, 0, cv2.BORDER_CONSTANT, value=(25, 25, 25))
+        cv2.putText(
+            panel, title, (12, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 1, cv2.LINE_AA
+        )
         panels.append(panel)
     preview = np.hstack(panels)
-    out = Path(__file__).parent/'predictions'
-    out.mkdir(exist_ok=True)
-    preview_path = out/(args.image.stem+'_preview.png')
+    out = RESULTS / "baseline_predictions"
+    out.mkdir(parents=True, exist_ok=True)
+    preview_path = out / (args.image.stem + "_preview.png")
     if not cv2.imwrite(str(preview_path), preview):
-        raise RuntimeError('Could not save preview')
-    cv2.imwrite(str(out/(args.image.stem+f'_mask_{size}px.png')), mask)
-    print('Input:', args.image)
-    print('Preview:', preview_path)
-    print('Model trained on 3 images; prediction requires review.')
-    print('Mask is a resized demonstration, not a calibrated measurement output.')
+        raise RuntimeError("Could not save preview")
+    cv2.imwrite(str(out / (args.image.stem + f"_mask_{size}px.png")), mask)
+    print("Input:", args.image)
+    print("Preview:", preview_path)
+    print("Model trained on 3 images; prediction requires review.")
+    print("Mask is a resized demonstration, not a calibrated measurement output.")
     if not args.no_show:
-        window = 'Organoid AI | Input - Mask - Outline | Press any key to close'
+        window = "Organoid AI | Input - Mask - Outline | Press any key to close"
         cv2.namedWindow(window, cv2.WINDOW_NORMAL)
         cv2.imshow(window, preview)
         cv2.resizeWindow(window, 1200, 400)
@@ -75,5 +93,6 @@ def main():
                 break
         cv2.destroyAllWindows()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

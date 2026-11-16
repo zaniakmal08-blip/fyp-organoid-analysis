@@ -7,6 +7,7 @@
 - Predicted polygon, Fiji ROI and eight ImageJ measurements.
 - CSV/JSON/overlay exports with provenance.
 - CNN inspector and numerical verification scripts.
+- Unit tests and continuous-integration checks that run without lab data.
 - Six-image pilot fitting and saved training-image comparison.
 
 ## Not yet established
@@ -24,4 +25,4 @@ Confirm the measurable FYP objective and success criteria; agree the annotation 
 
 ## Latest repository milestone
 
-Curated the existing prototype into portable code/data/model/documentation folders. This is an organisation milestone, not a new model-performance result.
+Curated the existing prototype into portable code/data/model/documentation folders, then restructured the source into documented single-purpose modules with unit tests and automated style checks. These are organisation milestones, not new model-performance results.

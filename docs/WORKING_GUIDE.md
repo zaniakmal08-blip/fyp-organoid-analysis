@@ -26,7 +26,7 @@ The parent FYP folder is the original archive and data source. Keep its recordin
 | `docs/literature/` | Reading register | Citations, method notes, limitations and relevance | Tracked |
 | `reports/` | Shareable milestone documents | Reviewed reports and presentation exports | Tracked unless separately ignored |
 | `scripts/` | Supporting tools | Dataset restore and repository checks | Tracked |
-| `tests/` | Behaviour verification | Existing CNN and Fiji integration checks | Tracked |
+| `tests/` | Behaviour verification | Unit tests (`test_core.py`) and CNN/Fiji integration checks | Tracked |
 | `.github/` | GitHub configuration | Automatic checks and issue/PR templates | Tracked |
 
 An ignored folder is not backed up by pushing Git. Keep separate backups for datasets and valuable generated outputs. Files in `reports/`, `experiments/` and most of `docs/` are not automatically private; review them before staging.
@@ -37,10 +37,13 @@ An ignored folder is not backed up by pushing Git. Keep separate backups for dat
 |---|---|
 | `src/prototype_app.py` | Starts the localhost upload and measurement server |
 | `src/prototype_ui.html` | Browser measurement interface |
-| `src/organoid_core.py` | TIFF validation, preprocessing, model inference, polygon and measurements |
+| `src/organoid_core.py` | The pipeline: model loading, inference, polygon, exports |
+| `src/model.py` | TinyUNet network definition |
+| `src/preprocessing.py` | TIFF validation, normalisation and letterbox resize |
+| `src/imagej_bridge.py` | Starts Fiji/ImageJ and returns the eight measurements |
 | `src/project_paths.py` | Repository-relative locations and environment overrides |
 | `src/train_prototype.py` | Fits all available paired masks and writes a candidate |
-| `src/train_three.py` | Defines TinyUNet and retains the earlier three-image baseline |
+| `src/train_three.py` | Earlier three-image baseline (legacy) |
 | `src/predict_image.py` | Earlier square-resize baseline inference; not the current app pipeline |
 | `src/network_visualizer.py` | CNN inspector server |
 | `src/network_visualizer.html` | CNN inspector interface |
@@ -56,6 +59,10 @@ Keep Python servers and their HTML files together. Changing a filename or folder
 - `AGENTS.md`: instructions for coding agents; explicitly ask new sessions to read it.
 - `CONTRIBUTING.md`: development workflow.
 - `requirements.txt`: Python packages required by the prototype.
+- `requirements-dev.txt`: adds pytest and Ruff for development.
+- `pyproject.toml`: formatter, linter and test settings.
+- `CHANGELOG.md`: notable code and repository changes.
+- `.vscode/`: shared F5 run configurations for VS Code and Antigravity.
 - `requirements-tested.txt`: versions from the verified local environment, not a universal lockfile.
 - `.gitignore`: local files that should not normally be committed. It does not remove previously committed files from history.
 - `.gitattributes`: Git text/binary handling and line-ending conventions.
@@ -209,11 +216,12 @@ Do not force-push to resolve a rejected push. First inspect remote changes. If `
 | Change | Applicable check |
 |---|---|
 | Documentation, manifests or repository layout | `python scripts/check_repository.py` |
+| Any Python code | `python -m pytest`, `ruff check .`, `ruff format .` |
 | CNN inspector or model arithmetic | `python tests/verify_network_visualizer.py` |
 | Segmentation exports, ImageJ bridge or measurement workflow | `python tests/verify_prototype.py` |
 | Model selection or research method | Independent evaluation designed for that research question, plus affected software checks |
 
-Run Python from the correct environment. The integration checks require pilot data and checkpoint; the Fiji check also requires `FIJI_HOME`. They write ignored local outputs. GitHub's automatic workflow runs syntax/structure checks only; a green Actions check does not mean Fiji integration or scientific validation ran in the cloud.
+Run Python from the correct environment. The integration checks require pilot data and checkpoint; the Fiji check also requires `FIJI_HOME`. They write ignored local outputs. GitHub's automatic workflow runs the structure, style and unit-test checks only; a green Actions check does not mean Fiji integration or scientific validation ran in the cloud.
 
 ## 11. Continue the research in order
 

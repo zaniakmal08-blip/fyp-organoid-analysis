@@ -7,7 +7,7 @@
 3. Read `docs/PROJECT_STATUS.md`, `docs/ROADMAP.md` and `data/DATA_NOTES.md` before proposing experiments or interpreting results.
 4. Inspect `git status --short`, the current branch and relevant owning code before editing. Preserve uncommitted user work.
 
-These files support a fresh Codex session in Antigravity or another editor. Do not assume access to previous chat history or that an editor automatically loaded this file. The user's current instructions take precedence.
+These files support a fresh AI coding-assistant session in Antigravity, Codex, Claude Code or another editor. Do not assume access to previous chat history or that an editor automatically loaded this file. The user's current instructions take precedence.
 
 ## Project boundaries
 
@@ -21,7 +21,9 @@ These files support a fresh Codex session in Antigravity or another editor. Do n
 ## Implementation conventions
 
 - Run commands from the repository root. Use `src/project_paths.py` and environment overrides; do not reintroduce absolute workstation paths into code.
-- Keep the HTML interfaces next to their Python servers. TinyUNet is still defined in `src/train_three.py`, which the current pipeline imports.
+- Keep the HTML interfaces next to their Python servers. Module responsibilities are described in `docs/ARCHITECTURE.md`: `model.py` (TinyUNet), `preprocessing.py`, `imagej_bridge.py`, `organoid_core.py` (pipeline). `train_three.py` and `predict_image.py` are a legacy baseline.
+- Do not rename TinyUNet attributes or change `preprocessing.py` behaviour without a new checkpoint; the selected checkpoint depends on both.
+- Code style is enforced by Ruff (`pyproject.toml`). Run `ruff check .` and `ruff format .` before committing Python changes. Write a docstring for every new module and public function.
 - The selected checkpoint is `models/tiny_unet.pt`. Training candidates belong in `results/local/` and must not silently replace it.
 - Full morphometry currently requires Windows Fiji with bundled Java. Local servers bind to localhost; do not expose them remotely as part of routine development.
 - Default training fits all paired masks; it does not implement a held-out split. Build and verify split support before claiming independent evaluation.
@@ -29,10 +31,11 @@ These files support a fresh Codex session in Antigravity or another editor. Do n
 
 ## Checks and publication
 
-- Run `python scripts/check_repository.py` for documentation/structure changes.
+- Run `python scripts/check_repository.py` for documentation/structure changes and `python -m pytest` for any Python change (no lab data needed).
 - Run applicable existing integration checks for code changes; see `docs/SETUP.md`. Do not run training merely to verify a documentation edit.
 - Report what was tested and what was unavailable. Software checks do not replace scientific validation.
 - This repository became public on 16 November 2026. Review staged content before publishing. Do not force-add ignored datasets, credentials, recordings, transcripts or administrative/personal documents.
 - Git ignores pilot payloads, raw images and `results/local/`; those need separate backups.
 - Commit/push when requested or clearly within the active task. Do not assume every future request authorises publication, history rewriting, branch deletion or model promotion.
+- Add notable code changes to `CHANGELOG.md`.
 - Update the handover/status when scope, paths, model selection or verified findings change. Do not invent dates, supervisor decisions or results to fill templates.
