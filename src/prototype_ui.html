@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Organoid measurement prototype</title>
+<style>
+:root{font-family:Segoe UI,Arial,sans-serif;color:#172f3c;background:#eef3f5}*{box-sizing:border-box}body{margin:0}main{max-width:1160px;margin:auto;padding:32px 24px}h1{margin:0 0 8px;font-size:30px}h2{font-size:19px;margin:0 0 16px}p{line-height:1.5}.muted{color:#526a77}.card{background:white;border:1px solid #d6e1e6;border-radius:14px;padding:24px;margin:20px 0}.notice{background:#fff4dc;border-left:4px solid #c68b24;padding:12px 16px;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}label{display:block;margin:12px 0 6px}input[type=number],select{padding:10px;border:1px solid #9eafb9;border-radius:6px;width:100%}button,.download{background:#126d76;color:white;border:0;padding:12px 18px;border-radius:7px;cursor:pointer;font-size:15px;text-decoration:none;display:inline-block;margin:8px 8px 0 0}button:disabled{background:#9caeb4;cursor:wait}button.secondary{background:#e7eff2;color:#173f50}img{width:100%;object-fit:contain;max-height:480px;background:#18222a;border-radius:8px}#source{max-height:320px}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:11px;border-bottom:1px solid #e0e8ed}th{color:#536a76}td:nth-child(2){font-variant-numeric:tabular-nums;font-weight:600}#status{white-space:pre-wrap;line-height:1.6}#status.error{color:#a12620}code{overflow-wrap:anywhere;font-size:13px}input[type=file]{max-width:100%}.small{font-size:13px}.actions{display:flex;flex-wrap:wrap}#result[hidden]{display:none}@media(max-width:750px){.grid{grid-template-columns:1fr}main{padding:20px 14px}.card{padding:18px}}
+</style></head><body><main>
+<p class="muted small">BRAIN ORGANOID · LOCAL PROTOTYPE</p>
+<h1>TIFF image → ROI → eight measurements</h1>
+<p class="muted">Upload one image, confirm its scale, and analyse. Images and results stay on this computer.</p>
+<div class="notice" id="modelInfo">Small pilot model. Outputs are unreviewed estimates: inspect the outline. This prototype demonstrates the workflow; it does not establish accuracy on new organoids.</div>
+<section class="card"><h2>1. Choose an image</h2>
+<div class="grid"><div><input id="file" type="file" accept=".tif,.tiff"><p class="muted small">Single-plane TIFF, grayscale or RGB, up to 50 MB.</p>
+<label for="example">Or try one of your training images</label><select id="example"></select><button class="secondary" id="loadExample">Load example</button>
+<p id="fileInfo" class="muted"></p></div><div><img id="source" alt="Input image preview" hidden></div></div></section>
+<section class="card"><h2>2. Confirm spatial calibration</h2>
+<p id="scaleInfo" class="muted">Choose an image first. Metadata values must be checked against the laboratory calibration.</p>
+<div class="grid"><div><label for="sx">Horizontal scale (µm/pixel)</label><input id="sx" type="number" step="any" min="0.000001" max="1000"></div><div><label for="sy">Vertical scale (µm/pixel)</label><input id="sy" type="number" step="any" min="0.000001" max="1000"></div></div>
+<button id="preset" class="secondary">Use previously recorded 10× pilot scale</button><p class="muted small">Pilot preset: 0.61922571983322461 µm/pixel on both axes. Use only if confirmed for this image; magnification alone does not establish scale.</p>
+<label><input type="checkbox" id="confirm"> I confirm these scale values apply to this image.</label>
+<button id="analyse" disabled>Analyse image</button><p id="status" role="status" aria-live="polite">Waiting for an image.</p></section>
+<section class="card" id="result" hidden><h2>3. Review ROI and save results</h2>
+<div class="grid"><div><img id="overlay" alt="Predicted ROI outlined in green"><p class="muted small">Green: measured outer boundary. Largest predicted object; interior holes filled. Smaller disconnected predictions are excluded.</p><img id="mask" alt="Predicted filled organoid mask"></div>
+<div><table><thead><tr><th>Measurement</th><th>Value</th><th>Unit</th></tr></thead><tbody id="measurements"></tbody></table><p class="muted small" id="measurementMethod">Calculated using ImageJ on the predicted ROI in original image coordinates. Boundary detail remains limited by the model resolution.</p><div id="warnings" class="notice small"></div></div></div>
+<div class="actions" id="downloads"></div><p class="small">Saved automatically on this computer:<br><code id="saved"></code></p></section>
+</main><script>
+let current=null,scaleSource='',busy=false;
+const $=id=>document.getElementById(id);
+function status(text,error=false){$('status').textContent=text;$('status').className=error?'error':'';}
+function ready(){ $('analyse').disabled=busy||!current||!$('confirm').checked||!Number.isFinite(+$('sx').value)||!Number.isFinite(+$('sy').value)||+$('sx').value<=0||+$('sy').value<=0||+$('sx').value>1000||+$('sy').value>1000;for(const id of ['file','example','loadExample','sx','sy','preset','confirm'])$(id).disabled=busy; }
+async function responseJSON(response){const data=await response.json();if(!response.ok)throw Error(data.error||'Request failed');return data;}
+async function inspect(file){
+ current=null;busy=true;ready();$('confirm').checked=false;$('result').hidden=true;$('source').hidden=true;status('Reading TIFF…');
+ try{const info=await responseJSON(await fetch('/api/inspect?name='+encodeURIComponent(file.name),{method:'POST',body:file}));
+ current=file;$('source').src=info.preview;$('source').hidden=false;$('fileInfo').textContent=`${info.filename} · ${info.width} × ${info.height} pixels`;
+ if(info.scale&&!info.scale.requires_manual_entry){$('sx').value=info.scale.x;$('sy').value=info.scale.y;scaleSource='operator confirmed OME metadata';$('scaleInfo').textContent='OME calibration detected. Confirm it against the lab calibration before analysis.';}
+ else if(info.scale){$('sx').value='';$('sy').value='';scaleSource='operator entered verified calibration';$('scaleInfo').textContent=info.scale.warning;}
+ else{$('sx').value='';$('sy').value='';scaleSource='operator entered calibration';$('scaleInfo').textContent='No supported OME calibration found. Enter the verified scale or use the confirmed pilot preset.';}
+ status('Image ready. Confirm the scale, then click Analyse image.');
+ }catch(e){status(e.message,true);}finally{busy=false;ready();}
+}
+$('file').addEventListener('change',()=>{if($('file').files[0])inspect($('file').files[0]);});
+$('loadExample').onclick=async()=>{try{const name=$('example').value;const res=await fetch('/example/'+encodeURIComponent(name));if(!res.ok)throw Error('Cannot load example');await inspect(new File([await res.blob()],name,{type:'image/tiff'}));}catch(e){status(e.message,true);}};
+$('preset').onclick=()=>{$('sx').value='0.61922571983322461';$('sy').value='0.61922571983322461';scaleSource='operator confirmed previously recorded 10x pilot preset';$('confirm').checked=false;ready();};
+for(const id of ['sx','sy'])$(id).oninput=()=>{scaleSource='operator entered calibration';$('confirm').checked=false;ready();};
+$('confirm').onchange=ready;
+$('analyse').onclick=async()=>{
+ if(!current)return;busy=true;ready();$('result').hidden=true;status('Predicting ROI and running ImageJ measurements… Please wait.');
+ try{const query=new URLSearchParams({name:current.name,sx:$('sx').value,sy:$('sy').value,source:scaleSource});
+ const result=await responseJSON(await fetch('/api/analyse?'+query,{method:'POST',body:current}));
+ const base='/files/'+result.run+'/';$('overlay').src=base+'overlay.png';$('mask').src=base+'mask.png';
+ $('measurementMethod').textContent=result.roi_representation==='polygon_1px'?'Measured by ImageJ from the predicted polygon ROI (one original-pixel approximation tolerance). The PNG is its raster preview. No circle or ellipse is fitted.':'Measured by ImageJ from the threshold-derived ROI in original image coordinates.';
+ const labels=[['Area','Area','µm²'],['Perimeter','Perimeter','µm'],['Circularity','Circularity','—'],['AspectRatio','Aspect ratio','—'],['Roundness','Roundness','—'],['Solidity','Solidity','—'],['Feret','Feret diameter','µm'],['MinFeret','MinFeret diameter','µm']];
+ $('measurements').replaceChildren();for(const [key,label,unit]of labels){const tr=document.createElement('tr');for(const value of [label,result.measurements[key].toFixed(6),unit]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('measurements').append(tr);}
+ $('warnings').replaceChildren();for(const message of result.warnings){const p=document.createElement('p');p.textContent=message;$('warnings').append(p);}
+ $('downloads').replaceChildren();for(const [name,label]of [['results.zip','Download all results'],['measurements.csv','Measurements CSV'],['predicted.roi','Fiji ROI'],['overlay.png','ROI overlay'],['mask.png','Binary mask']]){const a=document.createElement('a');a.href=base+name;a.download=name;a.className='download';a.textContent=label;$('downloads').append(a);}
+ $('saved').textContent=result.saved_directory;$('result').hidden=false;status('Analysis complete. Inspect the green boundary; results have been saved.');$('result').scrollIntoView({behavior:'smooth'});
+ }catch(e){status(e.message,true);}finally{busy=false;ready();}
+};
+fetch('/api/examples').then(responseJSON).then(data=>{for(const name of data.examples){const o=document.createElement('option');o.value=name;o.textContent=name;$('example').append(o);}if(data.training_count)$('modelInfo').textContent=`Model trained on ${data.training_count} images · checkpoint ${data.model_sha256.slice(0,12)}. Outputs are unreviewed estimates: inspect the outline. Training-set agreement does not establish accuracy on new organoids.`;}).catch(e=>status(e.message,true));
+</script></body></html>

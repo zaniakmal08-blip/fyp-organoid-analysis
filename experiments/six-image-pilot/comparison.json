@@ -1,0 +1,452 @@
+[
+  {
+    "image": "B01_P01_A01_H2O2_000uM_D01_10x",
+    "reference_source": "saved manual ROI, recalculated with provisional pilot scale",
+    "reference": {
+      "Area": 173972.70287450138,
+      "Perimeter": 1498.226083489149,
+      "Circularity": 0.973949115355002,
+      "AspectRatio": 1.06203039726573,
+      "Roundness": 0.9415926348008198,
+      "Solidity": 0.995326267342773,
+      "Feret": 488.9001762730007,
+      "MinFeret": 456.1455201358065
+    },
+    "original_manual_csv": {
+      " ": "1",
+      "Label": "B01_P01_A01_H2O2_000uM_D01_10x.tif:B01_P01_A01_H2O2_000uM_D01_10x",
+      "Area": "173972.691730",
+      "Perim.": "1498.226036",
+      "Circ.": "0.973949",
+      "Feret": "488.900161",
+      "FeretX": "762",
+      "FeretY": "940",
+      "FeretAngle": "27.863317",
+      "MinFeret": "456.145506",
+      "AR": "1.062030",
+      "Round": "0.941593",
+      "Solidity": "0.995326"
+    },
+    "before": {
+      "measurements": {
+        "Area": 173815.49227273915,
+        "Perimeter": 1498.3698943793543,
+        "Circularity": 0.9728822273741972,
+        "AspectRatio": 1.063702545047394,
+        "Roundness": 0.9401124446453629,
+        "Solidity": 0.9933873521467822,
+        "Feret": 494.43729364564865,
+        "MinFeret": 458.50735929760435
+      },
+      "Dice": 0.9925898028021977,
+      "signed_error_percent": {
+        "Area": -0.09036509703228278,
+        "Perimeter": 0.00959874426096925,
+        "Circularity": -0.10954247649949445,
+        "AspectRatio": 0.1574482035513479,
+        "Roundness": -0.15720069388286737,
+        "Solidity": -0.1948019719370107,
+        "Feret": 1.1325660413662966,
+        "MinFeret": 0.5177819484217778
+      }
+    },
+    "after": {
+      "measurements": {
+        "Area": 171933.18289700567,
+        "Perimeter": 1502.1392188091231,
+        "Circularity": 0.9575229608599093,
+        "AspectRatio": 1.0588068377543656,
+        "Roundness": 0.9444593332254168,
+        "Solidity": 0.9893212366184504,
+        "Feret": 494.4465996641536,
+        "MinFeret": 458.5366986047196
+      },
+      "Dice": 0.9863289143406334,
+      "signed_error_percent": {
+        "Area": -1.1723218319870343,
+        "Perimeter": 0.261184567743007,
+        "Circularity": -1.6865516109746008,
+        "AspectRatio": -0.30352798937427794,
+        "Roundness": 0.3044520866715762,
+        "Solidity": -0.6033228421022412,
+        "Feret": 1.1344695012046422,
+        "MinFeret": 0.5242139543979694
+      }
+    }
+  },
+  {
+    "image": "B01_P01_A02_H2O2_12.5uM_D02_10x",
+    "reference_source": "saved manual ROI, recalculated with provisional pilot scale",
+    "reference": {
+      "Area": 287230.6713484335,
+      "Perimeter": 1912.4429213343756,
+      "Circularity": 0.986878558067296,
+      "AspectRatio": 1.0065680302541313,
+      "Roundness": 0.9934748272777221,
+      "Solidity": 0.997776910504997,
+      "Feret": 614.9759423030291,
+      "MinFeret": 595.9175401765849
+    },
+    "original_manual_csv": {
+      " ": "1",
+      "Label": "B01_P01_A02_H2O2_12.5uM_D02_10x.tif",
+      "Area": "287230.652949",
+      "Perim.": "1912.442860",
+      "Circ.": "0.986879",
+      "Feret": "614.975923",
+      "FeretX": "518",
+      "FeretY": "730",
+      "FeretAngle": "170.670460",
+      "MinFeret": "595.917521",
+      "AR": "1.006568",
+      "Round": "0.993475",
+      "Solidity": "0.997777"
+    },
+    "before": {
+      "measurements": {
+        "Area": 287293.93902963045,
+        "Perimeter": 1921.1762460305038,
+        "Circularity": 0.9781420092433765,
+        "AspectRatio": 1.0126511985897284,
+        "Roundness": 0.9875068546728157,
+        "Solidity": 0.9949413229313636,
+        "Feret": 618.7828150484368,
+        "MinFeret": 592.7902481665894
+      },
+      "Dice": 0.9917013720807113,
+      "signed_error_percent": {
+        "Area": 0.022026784570030676,
+        "Perimeter": 0.4566580575400734,
+        "Circularity": -0.8852709132752024,
+        "AspectRatio": 0.6043474611508615,
+        "Roundness": -0.6007170429531187,
+        "Solidity": -0.2841905383637493,
+        "Feret": 0.6190279137019982,
+        "MinFeret": -0.5247860314816004
+      }
+    },
+    "after": {
+      "measurements": {
+        "Area": 290948.893800356,
+        "Perimeter": 1927.6253856694432,
+        "Circularity": 0.9839687372861994,
+        "AspectRatio": 1.0196878368742688,
+        "Roundness": 0.9806922901673323,
+        "Solidity": 0.9963901808717667,
+        "Feret": 620.7066848517553,
+        "MinFeret": 594.5852481519187
+      },
+      "Dice": 0.9897415273019282,
+      "signed_error_percent": {
+        "Area": 1.2945074543978783,
+        "Perimeter": 0.7938780376501011,
+        "Circularity": -0.29485094769868947,
+        "AspectRatio": 1.303419761585817,
+        "Roundness": -1.2866493200855387,
+        "Solidity": -0.13898193259738015,
+        "Feret": 0.931864509571722,
+        "MinFeret": -0.22356986241274926
+      }
+    }
+  },
+  {
+    "image": "B01_P01_A03_H2O2_025uM_D04_10x",
+    "reference_source": "saved manual ROI, recalculated with provisional pilot scale",
+    "reference": {
+      "Area": 451262.6794651652,
+      "Perimeter": 2404.735837762002,
+      "Circularity": 0.9806285437487011,
+      "AspectRatio": 1.003650123175527,
+      "Roundness": 0.9963631517684889,
+      "Solidity": 0.9960707410493512,
+      "Feret": 767.7649826020355,
+      "MinFeret": 752.4616676919283
+    },
+    "original_manual_csv": {
+      " ": "1",
+      "Label": "B01_P01_A03_H2O2_025uM_D04_10x.tif:B01_P01_A03_H2O2_025uM_D04_10x",
+      "Area": "451262.6506",
+      "Perim.": "2404.735761",
+      "Circ.": "0.980629",
+      "Feret": "767.764958",
+      "FeretX": "708",
+      "FeretY": "222",
+      "FeretAngle": "131.403283",
+      "MinFeret": "752.461644",
+      "AR": "1.00365",
+      "Round": "0.996363",
+      "Solidity": "0.996071"
+    },
+    "before": {
+      "measurements": {
+        "Area": 451697.8844237021,
+        "Perimeter": 2400.5077420071243,
+        "Circularity": 0.9850350829398916,
+        "AspectRatio": 1.006117699003028,
+        "Roundness": 0.9939194996677923,
+        "Solidity": 0.9968217138882471,
+        "Feret": 775.3054689880424,
+        "MinFeret": 753.4964756670156
+      },
+      "Dice": 0.9926216924279418,
+      "signed_error_percent": {
+        "Area": 0.09644160227313685,
+        "Perimeter": -0.17582370955192916,
+        "Circularity": 0.44935865055950563,
+        "AspectRatio": 0.24586016287166446,
+        "Roundness": -0.24525717318623136,
+        "Solidity": 0.07539352457083226,
+        "Feret": 0.982134710084255,
+        "MinFeret": 0.13752301539312647
+      }
+    },
+    "after": {
+      "measurements": {
+        "Area": 461520.86295039614,
+        "Perimeter": 2500.8794497439308,
+        "Circularity": 0.9272902347360482,
+        "AspectRatio": 1.0247731391633415,
+        "Roundness": 0.9758257333095527,
+        "Solidity": 0.9911200042818971,
+        "Feret": 790.1283788492046,
+        "MinFeret": 758.9376572449573
+      },
+      "Dice": 0.9848482622534648,
+      "signed_error_percent": {
+        "Area": 2.2732177846811785,
+        "Perimeter": 3.9980945296430526,
+        "Circularity": -5.439196049582006,
+        "AspectRatio": 2.104619478447494,
+        "Roundness": -2.061238256601865,
+        "Solidity": -0.49702662305275747,
+        "Feret": 2.9127919029827662,
+        "MinFeret": 0.8606404593197791
+      }
+    }
+  },
+  {
+    "image": "B01_P01_A04_H2O2_050uM_D05_10x",
+    "reference_source": "saved manual ROI, recalculated with provisional pilot scale",
+    "reference": {
+      "Area": 655157.9280219064,
+      "Perimeter": 3151.284873527229,
+      "Circularity": 0.8290496402103765,
+      "AspectRatio": 1.0502943044149489,
+      "Roundness": 0.9521140844013579,
+      "Solidity": 0.9692968721635261,
+      "Feret": 1042.2229277716592,
+      "MinFeret": 888.9807010400236
+    },
+    "original_manual_csv": {
+      " ": "1",
+      "Label": "B01_P01_A04_H2O2_050uM_D05_10x.tif:B01_P01_A04_H2O2_050uM_D05_10x",
+      "Area": "1708630",
+      "Perim.": "5089.072971",
+      "Circ.": "0.829050",
+      "Feret": "1683.106651",
+      "FeretX": "396",
+      "FeretY": "1248",
+      "FeretAngle": "44.133407",
+      "MinFeret": "1435.632714",
+      "AR": "1.050294",
+      "Round": "0.952114",
+      "Solidity": "0.969297"
+    },
+    "before": {
+      "measurements": {
+        "Area": 498144.4146726276,
+        "Perimeter": 4053.66326702324,
+        "Circularity": 0.38095158970595944,
+        "AspectRatio": 1.0805872818417694,
+        "Roundness": 0.9254227000484261,
+        "Solidity": 0.866158652142505,
+        "Feret": 908.4454961888754,
+        "MinFeret": 794.4575313457647
+      },
+      "Dice": 0.8580197051664948,
+      "signed_error_percent": {
+        "Area": -23.965750337990077,
+        "Perimeter": 28.63525291148877,
+        "Circularity": -54.04960436273869,
+        "AspectRatio": 2.8842370466528275,
+        "Roundness": -2.8033808962834588,
+        "Solidity": -10.640519224085674,
+        "Feret": -12.835778989127473,
+        "MinFeret": -10.632758347135745
+      }
+    },
+    "after": {
+      "measurements": {
+        "Area": 535389.1399920658,
+        "Perimeter": 5215.733449140854,
+        "Circularity": 0.24731396736786915,
+        "AspectRatio": 1.0692104629181451,
+        "Roundness": 0.9352695607474204,
+        "Solidity": 0.8495796905551383,
+        "Feret": 915.6001401783295,
+        "MinFeret": 880.2045366188403
+      },
+      "Dice": 0.8970953235674445,
+      "signed_error_percent": {
+        "Area": -18.28090341384618,
+        "Perimeter": 65.51132818731459,
+        "Circularity": -70.16897959148602,
+        "AspectRatio": 1.8010340933661684,
+        "Roundness": -1.7691707254313453,
+        "Solidity": -12.35093035440961,
+        "Feret": -12.149299753370181,
+        "MinFeret": -0.9872165291008081
+      }
+    }
+  },
+  {
+    "image": "B01_P01_A05_H2O2_100uM_D06_10x",
+    "reference_source": "saved manual ROI, recalculated with provisional pilot scale",
+    "reference": {
+      "Area": 618846.8803007388,
+      "Perimeter": 2940.215289320909,
+      "Circularity": 0.8995696750621345,
+      "AspectRatio": 1.0439350657019653,
+      "Roundness": 0.957913986084544,
+      "Solidity": 0.9751083146892905,
+      "Feret": 987.8503852265432,
+      "MinFeret": 877.0539875064788
+    },
+    "original_manual_csv": {
+      " ": "1",
+      "Label": "Mask",
+      "Area": "3145728",
+      "Perim.": "7168",
+      "Circ.": "0.769370",
+      "Feret": "2560",
+      "FeretX": "0",
+      "FeretY": "0",
+      "FeretAngle": "143.130102",
+      "MinFeret": "1536",
+      "AR": "1.333333",
+      "Round": "0.750000",
+      "Solidity": "1.000000"
+    },
+    "before": {
+      "measurements": {
+        "Area": 586165.0968373261,
+        "Perimeter": 2749.8726377350163,
+        "Circularity": 0.9741025036317426,
+        "AspectRatio": 1.0305516086830273,
+        "Roundness": 0.97035412062277,
+        "Solidity": 0.9937490045926874,
+        "Feret": 884.3419171380054,
+        "MinFeret": 854.0508748663494
+      },
+      "Dice": 0.9671037463472899,
+      "signed_error_percent": {
+        "Area": -5.281077517516211,
+        "Perimeter": -6.473765791138905,
+        "Circularity": 8.285386961767024,
+        "AspectRatio": -1.2820200660602021,
+        "Roundness": 1.2986692666504258,
+        "Solidity": 1.9116532617544795,
+        "Feret": -10.478152323117246,
+        "MinFeret": -2.6227704300768018
+      }
+    },
+    "after": {
+      "measurements": {
+        "Area": 596353.8775934863,
+        "Perimeter": 2810.0032912802817,
+        "Circularity": 0.949074389649984,
+        "AspectRatio": 1.0103333967629518,
+        "Roundness": 0.9897722902201798,
+        "Solidity": 0.9918785361403388,
+        "Feret": 891.6136507374431,
+        "MinFeret": 861.6299305127202
+      },
+      "Dice": 0.9767709241585479,
+      "signed_error_percent": {
+        "Area": -3.6346636661271794,
+        "Perimeter": -4.428655225131556,
+        "Circularity": 5.503155115186624,
+        "AspectRatio": -3.218750863246364,
+        "Roundness": 3.325800082098808,
+        "Solidity": 1.719831653408885,
+        "Feret": -9.742035426450752,
+        "MinFeret": -1.7586211582721658
+      }
+    }
+  },
+  {
+    "image": "B01_P01_B07_ROT_000nM_D01_10x",
+    "reference_source": "saved manual ROI, recalculated with provisional pilot scale",
+    "reference": {
+      "Area": 184495.46029928332,
+      "Perimeter": 1567.9858485360517,
+      "Circularity": 0.9429990840187611,
+      "AspectRatio": 1.2265123035638432,
+      "Roundness": 0.8153199907529075,
+      "Solidity": 0.9922829449371005,
+      "Feret": 544.8246859983058,
+      "MinFeret": 441.24672863223543
+    },
+    "original_manual_csv": {
+      " ": "1",
+      "Label": "B01_P01_B07_ROT_000nM_D01_10x.tif:B01_P01_B07_ROT_000nM_D01_10x",
+      "Area": "481158",
+      "Perim.": "2532.171708",
+      "Circ.": "0.942999",
+      "Feret": "879.848282",
+      "FeretX": "877",
+      "FeretY": "336",
+      "FeretAngle": "93.714445",
+      "MinFeret": "712.578167",
+      "AR": "1.226512",
+      "Round": "0.815320",
+      "Solidity": "0.992283"
+    },
+    "before": {
+      "measurements": {
+        "Area": 189195.67385148158,
+        "Perimeter": 1669.9861227185004,
+        "Circularity": 0.8525018715806204,
+        "AspectRatio": 1.2231895285624033,
+        "Roundness": 0.8175347946080648,
+        "Solidity": 0.9846608228855374,
+        "Feret": 553.3886219136189,
+        "MinFeret": 446.7727518234483
+      },
+      "Dice": 0.978393894581718,
+      "signed_error_percent": {
+        "Area": 2.5476039055777866,
+        "Perimeter": 6.50517823727052,
+        "Circularity": -9.596744468984049,
+        "AspectRatio": -0.270912488344802,
+        "Roundness": 0.2716484178331019,
+        "Solidity": -0.7681399837065881,
+        "Feret": 1.5718700226699578,
+        "MinFeret": 1.2523658154570967
+      }
+    },
+    "after": {
+      "measurements": {
+        "Area": 185455.21185101708,
+        "Perimeter": 1559.5353575013496,
+        "Circularity": 0.9582050512480886,
+        "AspectRatio": 1.2351605257877338,
+        "Roundness": 0.8096113655852479,
+        "Solidity": 0.9931478158021183,
+        "Feret": 543.7722117603554,
+        "MinFeret": 440.2694868014227
+      },
+      "Dice": 0.9886836909946778,
+      "signed_error_percent": {
+        "Area": 0.5202033427689103,
+        "Perimeter": -0.5389392412305153,
+        "Circularity": 1.6125113467262944,
+        "AspectRatio": 0.7051068463611583,
+        "Roundness": -0.7001699004568677,
+        "Solidity": 0.08715970272699546,
+        "Feret": -0.19317667958122783,
+        "MinFeret": -0.22147287841474617
+      }
+    }
+  }
+]

@@ -1,0 +1,2 @@
+experiment_id,status,training_images,evaluation_split,evidence,notes
+pilot-six-image,selected prototype,6,training only,six-image-pilot/SUMMARY.md,No independent validation; calibration provisional

@@ -1,0 +1,104 @@
+{
+  "manual_roi_agreement": [
+    {
+      "image": "B01_P01_A01_H2O2_000uM_D01_10x",
+      "absolute_differences": {
+        "Area": 0.011144501389935613,
+        "Perimeter": 4.7489148755630595e-05,
+        "Circularity": 1.1535500221704353e-07,
+        "AspectRatio": 3.9726572986786834e-07,
+        "Roundness": 3.6519918023003584e-07,
+        "Solidity": 2.673427729193989e-07,
+        "Feret": 1.5273000656179647e-05,
+        "MinFeret": 1.4135806452486577e-05
+      }
+    },
+    {
+      "image": "B01_P01_A02_H2O2_12.5uM_D02_10x",
+      "absolute_differences": {
+        "Area": 0.01839943346567452,
+        "Perimeter": 6.133437545940978e-05,
+        "Circularity": 4.419327039872911e-07,
+        "AspectRatio": 3.02541312002802e-08,
+        "Roundness": 1.7272227770259718e-07,
+        "Solidity": 8.94950030749797e-08,
+        "Feret": 1.930302914843196e-05,
+        "MinFeret": 1.9176584942215413e-05
+      }
+    },
+    {
+      "image": "B01_P01_A03_H2O2_025uM_D04_10x",
+      "absolute_differences": {
+        "Area": 0.02886516525177285,
+        "Perimeter": 7.676200220885221e-05,
+        "Circularity": 4.5625129863058334e-07,
+        "AspectRatio": 1.2317552711138546e-07,
+        "Roundness": 1.517684888874271e-07,
+        "Solidity": 2.589506488126503e-07,
+        "Feret": 2.4602035409770906e-05,
+        "MinFeret": 2.3691928163316334e-05
+      }
+    }
+  ],
+  "prediction_exports": [
+    {
+      "image": "B01_P01_A01_H2O2_000uM_D01_10x",
+      "measurements": {
+        "Area": 171933.18289700567,
+        "Perimeter": 1502.1392188091231,
+        "Circularity": 0.9575229608599093,
+        "AspectRatio": 1.0588068377543656,
+        "Roundness": 0.9444593332254168,
+        "Solidity": 0.9893212366184504,
+        "Feret": 494.4465996641536,
+        "MinFeret": 458.5366986047196
+      },
+      "warnings": [
+        "6-image demonstration model: inspect the outline before using these measurements.",
+        "Mask restored to original coordinates; boundary detail is limited by model input resolution.",
+        "1 smaller external regions discarded; only the largest object is measured."
+      ]
+    },
+    {
+      "image": "B01_P01_A02_H2O2_12.5uM_D02_10x",
+      "measurements": {
+        "Area": 290948.893800356,
+        "Perimeter": 1927.6253856694432,
+        "Circularity": 0.9839687372861994,
+        "AspectRatio": 1.0196878368742688,
+        "Roundness": 0.9806922901673323,
+        "Solidity": 0.9963901808717667,
+        "Feret": 620.7066848517553,
+        "MinFeret": 594.5852481519187
+      },
+      "warnings": [
+        "6-image demonstration model: inspect the outline before using these measurements.",
+        "Mask restored to original coordinates; boundary detail is limited by model input resolution."
+      ]
+    },
+    {
+      "image": "B01_P01_A03_H2O2_025uM_D04_10x",
+      "measurements": {
+        "Area": 461520.86295039614,
+        "Perimeter": 2500.8794497439308,
+        "Circularity": 0.9272902347360482,
+        "AspectRatio": 1.0247731391633415,
+        "Roundness": 0.9758257333095527,
+        "Solidity": 0.9911200042818971,
+        "Feret": 790.1283788492046,
+        "MinFeret": 758.9376572449573
+      },
+      "warnings": [
+        "6-image demonstration model: inspect the outline before using these measurements.",
+        "Mask restored to original coordinates; boundary detail is limited by model input resolution.",
+        "2 smaller external regions discarded; only the largest object is measured."
+      ]
+    }
+  ],
+  "rejections": [
+    "blank",
+    "stack",
+    "png"
+  ],
+  "scale_check": "passed: area x4, length x2, dimensionless unchanged"
+}

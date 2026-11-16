@@ -1,0 +1,192 @@
+[
+  {
+    "path": "images/B01_P01_A01_H2O2_000uM_D01_10x.tif",
+    "bytes": 6306800,
+    "sha256": "1996072a42333a6602272bf22f46116a5ade3a9a5f446e9434d288f176223012"
+  },
+  {
+    "path": "images/B01_P01_A02_H2O2_12.5uM_D02_10x.tif",
+    "bytes": 9458909,
+    "sha256": "0c6b7361684e0e22e4825d26bb22d935c36c75b57d559c5219ea626787694af7"
+  },
+  {
+    "path": "images/B01_P01_A03_H2O2_025uM_D04_10x.tif",
+    "bytes": 9458903,
+    "sha256": "2dec10aeeb95b7e1e081e1a8d47d402c9edf4fa8dc04433b71e34eb7484775c0"
+  },
+  {
+    "path": "images/B01_P01_A04_H2O2_050uM_D05_10x.tif",
+    "bytes": 9458910,
+    "sha256": "1b01640c1b699dbba7ae374657f4da4d32b09e58f0393626d3c95a483e7e6f49"
+  },
+  {
+    "path": "images/B01_P01_A05_H2O2_100uM_D06_10x.tif",
+    "bytes": 9458939,
+    "sha256": "c4f8f08bf7662d8933bc0eb345261dbaa96ccfbfae97a1c2873087b8aaabfd8e"
+  },
+  {
+    "path": "images/B01_P01_A06_H2O2_200uM_D07_10x.tif",
+    "bytes": 9458914,
+    "sha256": "d1748d28e769a7a2928342073a78f9f8a2d05cd5c42b1866ac6270543efd8a33"
+  },
+  {
+    "path": "images/B01_P01_B07_ROT_000nM_D01_10x.tif",
+    "bytes": 9458910,
+    "sha256": "89fa57098142c36434cced158c99275240f0bc1c310fa052f56725a5bc7bb1dd"
+  },
+  {
+    "path": "images/B01_P01_B08_ROT_005nM_D02_10x.tif",
+    "bytes": 9458894,
+    "sha256": "b258f3af62e1474aa539185e9670e28d1835f36aa81e5fd4396fbaef4df796be"
+  },
+  {
+    "path": "images/B01_P01_B09_ROT_010nM_D04_10x.tif",
+    "bytes": 9458901,
+    "sha256": "c0f94e8996955b25a9d121b5b95f6baf5cf3f611fa2dec982f74bddd86010cf6"
+  },
+  {
+    "path": "images/B01_P01_B10_ROT_025nM_D05_10x.tif",
+    "bytes": 9458907,
+    "sha256": "c3ce55d4e38be02ce50823490a43b98c4ede781850be0d64f7306dbb5f7c4009"
+  },
+  {
+    "path": "images/B01_P01_B11_ROT_050nM_D06_10x.tif",
+    "bytes": 9458939,
+    "sha256": "14b672440997caac8d61a3efb105d2cbabaf3d82005becc67efc1f9d731d0ef0"
+  },
+  {
+    "path": "images/B01_P01_B12_ROT_100nM_D07_10x.tif",
+    "bytes": 9458921,
+    "sha256": "72cf4efcf0a774581635ddaff33292a6e7d94c4881836a93a3c052db1094546a"
+  },
+  {
+    "path": "images/B01_P01_C01_H2O2_000uM_D08_10x.tif",
+    "bytes": 9458899,
+    "sha256": "2bc827b6447a4137bc34eda4fd99e38e2a588482c92d05d0a92887c05f627b42"
+  },
+  {
+    "path": "images/B01_P01_C06_H2O2_200uM_D09_10x.tif",
+    "bytes": 9458903,
+    "sha256": "3be0df1596f191da1939459146d58f35ba1a02566d1ded4f33d8888c6b452967"
+  },
+  {
+    "path": "images/B01_P01_D07_ROT_000nM_D04_10x.tif",
+    "bytes": 9458900,
+    "sha256": "72247dda81c1b6a7ed55e718fd8c4d4a181dc9c827125f7a2438c73288fb461b"
+  },
+  {
+    "path": "images/B01_P01_D12_ROT_100nM_D09_10x.tif",
+    "bytes": 9458901,
+    "sha256": "5f3ddb72eee03f58134b80df3ce8df4a0429e9929e4aea929668a73e8ab25681"
+  },
+  {
+    "path": "images/B01_P01_E03_H2O2_025uM_D08_10x.tif",
+    "bytes": 9458911,
+    "sha256": "aa33de1f93d88093bb2d46c02674102e1069afb16a5d72381994acbd0082d00d"
+  },
+  {
+    "path": "images/B01_P01_F09_ROT_010nM_D09_10x.tif",
+    "bytes": 9458901,
+    "sha256": "913ee1ec5f916a25e92215c3eafde287932cbf6561562d7f27f09901b5ed624f"
+  },
+  {
+    "path": "images/B01_P01_G04_H2O2_050uM_D02_10x.tif",
+    "bytes": 9458911,
+    "sha256": "f71f648011a1d4aa0d39071342d9af65da2e9a48d28611c20368ceaf1c537f0e"
+  },
+  {
+    "path": "images/B01_P01_H11_ROT_050nM_D08_10x.tif",
+    "bytes": 9458911,
+    "sha256": "e4694e7c60496bcaeb006f6391e4ebfcaf1d196e8b456ddceaf6b85aade58d2b"
+  },
+  {
+    "path": "masks/B01_P01_A01_H2O2_000uM_D01_10x.png",
+    "bytes": 7791,
+    "sha256": "370dcc4b1a23f09d7c6ea1cd433328de7acc7e5fcb4844716675ad1f9b3f04d5"
+  },
+  {
+    "path": "masks/B01_P01_A02_H2O2_12.5uM_D02_10x.png",
+    "bytes": 9150,
+    "sha256": "7e65d8f8e8528ad275131581958ae392cf98174bf0fb17c69b986805a8b15077"
+  },
+  {
+    "path": "masks/B01_P01_A03_H2O2_025uM_D04_10x.png",
+    "bytes": 10676,
+    "sha256": "3b47819eb73d7a9fee33dc3880ef9e7a67ba614b82fa3118964f30201a31610a"
+  },
+  {
+    "path": "masks/B01_P01_A04_H2O2_050uM_D05_10x.png",
+    "bytes": 12490,
+    "sha256": "d838a0b9ab50f9562a49fb5c0f4ce1180b81642c110827f29296deea5fc63601"
+  },
+  {
+    "path": "masks/B01_P01_A05_H2O2_100uM_D06_10x.png",
+    "bytes": 11883,
+    "sha256": "5f8313a29de4cdd4928fbdcfdadde423d96f2eafaa20b927fcc84bc63906786d"
+  },
+  {
+    "path": "masks/B01_P01_B07_ROT_000nM_D01_10x.png",
+    "bytes": 8503,
+    "sha256": "adf46356fc45eb34c0da5bfbc93b138cb53b63e9d44bc3a02eadc094dcbe61c0"
+  },
+  {
+    "path": "measurements/B01_P01_A01_H2O2_000uM_D01_10x.csv",
+    "bytes": 256,
+    "sha256": "11fff6f4a364efb0b8eadc33abfcf8e163c9a4f98ca7906eab704f7750976faa"
+  },
+  {
+    "path": "measurements/B01_P01_A02_H2O2_12.5uM_D02_10x.csv",
+    "bytes": 227,
+    "sha256": "45c1aafd0503104ebc6ebdbd942d6658926487530e75c1d1d4606bfddf26f3b6"
+  },
+  {
+    "path": "measurements/B01_P01_A03_H2O2_025uM_D04_10x.csv",
+    "bytes": 254,
+    "sha256": "91f221d5d45d1b66af93336679a5139e2485cae352a5fff0bfb9933fcda815d0"
+  },
+  {
+    "path": "measurements/B01_P01_A04_H2O2_050uM_D05_10x.csv",
+    "bytes": 253,
+    "sha256": "f3e66cca0ec255f52e8e3e32b9141976ace20f684801e66cfdfc5c999bd78ae4"
+  },
+  {
+    "path": "measurements/B01_P01_A05_H2O2_100uM_D06_10x.csv",
+    "bytes": 167,
+    "sha256": "207f4e4e387cdfc6083915a570138faf9df7f516bb836db179223d65c44100fe"
+  },
+  {
+    "path": "measurements/B01_P01_B07_ROT_000nM_D01_10x.csv",
+    "bytes": 247,
+    "sha256": "912d55ee8a487c8251920f03af9a2681be7f4a5d930c44147593815b3098bea0"
+  },
+  {
+    "path": "rois/B01_P01_A01_H2O2_000uM_D01_10x.roi",
+    "bytes": 296,
+    "sha256": "795a232214cb17978868df4bec8817b6b7e398e3f32a24ef67cc896fa151fc5a"
+  },
+  {
+    "path": "rois/B01_P01_A02_H2O2_12.5uM_D02_10x.roi",
+    "bytes": 292,
+    "sha256": "f4eef8b264de4e05e9835c42ade55ead09ae44ec50425f53af7f44f6aa962e79"
+  },
+  {
+    "path": "rois/B01_P01_A03_H2O2_025uM_D04_10x.roi",
+    "bytes": 340,
+    "sha256": "98cbcb396181ee7a6dd505d6a670c35558d677624028f891c5c193643fd71541"
+  },
+  {
+    "path": "rois/B01_P01_A04_H2O2_050uM_D05_10x.roi",
+    "bytes": 5296,
+    "sha256": "59f150000d595423bb66ff4c379b5a02021d4571b88e4d83170d89febbb454ec"
+  },
+  {
+    "path": "rois/B01_P01_A05_H2O2_100uM_D06_10x.roi",
+    "bytes": 464,
+    "sha256": "508d9978b6eea1b5410115b342c8950958561342edf7185b20400a0f75489b4e"
+  },
+  {
+    "path": "rois/B01_P01_B07_ROT_000nM_D01_10x.roi",
+    "bytes": 420,
+    "sha256": "165902355252422791438f72dbbc54a3d0bdae4637a18c41c63aee286668ccd4"
+  }
+]

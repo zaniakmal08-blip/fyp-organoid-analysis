@@ -1,0 +1,5 @@
+# Local verification environment: Python 3.14.7 on Windows
+numpy==2.4.4
+Pillow==12.2.0
+opencv-python==4.13.0.92
+torch==2.11.0
