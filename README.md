@@ -6,6 +6,10 @@ A research prototype for segmenting organoids in microscope TIFF images and extr
 
 > **Current status:** six annotated images used for pilot fitting; no held-out validation or test set. Measurements are experimental and require boundary review and verified calibration. Prediction of biological outcomes remains a possible extension, not an implemented or approved project scope.
 
+## Returning to this project
+
+Read the [daily working guide](docs/WORKING_GUIDE.md) for folder explanations, running the prototype and updating GitHub. For Codex in Antigravity or a fresh editor session, start with [AGENTS.md](AGENTS.md) and the [project handover](docs/PROJECT_HANDOVER.md). The handover explains the current FYP scope, evidence, limitations and next decisions.
+
 ## Start here
 
 | Your purpose | Read or run |
